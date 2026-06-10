@@ -1,4 +1,4 @@
-# ccxpDecaptcha
+# ccxp-decaptcha
 
 A training pipeline for NTHU CCXP & CCXP OAuth decaptcha models.
 
