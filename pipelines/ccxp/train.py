@@ -77,7 +77,7 @@ class CaptchaDataset(data.Dataset):
             indices = self._cap_group_samples(indices, groups, max_samples=MAX_TRAIN_RENDERS_PER_GROUP, seed=actual_seed)
 
         self.images = images[indices]
-        self.labels = labels[indices]
+        self.labels = torch.as_tensor(labels[indices], dtype=torch.long)
         self.groups = groups[indices]
         self.transform = transform
         self.split_name = split_name
@@ -144,7 +144,7 @@ class CaptchaDataset(data.Dataset):
 
     def __getitem__(self, item):
         image = self.images[item]
-        label = torch.tensor(self.labels[item], dtype=torch.long)
+        label = self.labels[item]
         if self.transform:
             image = self.transform(image)
         return image, label
