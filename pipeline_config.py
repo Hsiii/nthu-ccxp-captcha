@@ -23,28 +23,8 @@ class PipelinePaths:
     eval_dir: Path
 
     @property
-    def image_array_path(self) -> Path:
-        return self.processed_dir / 'images.npy'
-
-    @property
-    def label_array_path(self) -> Path:
-        return self.processed_dir / 'labels.npy'
-
-    @property
-    def group_array_path(self) -> Path:
-        return self.processed_dir / 'groups.npy'
-
-    @property
-    def best_checkpoint_path(self) -> Path:
-        return self.checkpoints_dir / 'best.pt'
-
-    @property
     def last_checkpoint_path(self) -> Path:
         return self.checkpoints_dir / 'last.pt'
-
-    @property
-    def quantized_checkpoint_path(self) -> Path:
-        return self.checkpoints_dir / 'int8.pt'
 
 
 @dataclass(frozen=True)
